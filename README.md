@@ -32,7 +32,7 @@
 
 ## 📢 **Updates**
 
-- ✅ June 29, 2024 - We release the **dataset** of Hawk. Check this Google Cloud link for [DOWNLOAD](https://drive.google.com/file/d/1WCnizldWZvtS4Yg5SX7ay5C3kUQfz-Eg/view?usp=sharing).
+- ✅ July 29, 2024 - We release the **dataset** of Hawk. Check this Google Cloud link for [DOWNLOAD](https://drive.google.com/file/d/1WCnizldWZvtS4Yg5SX7ay5C3kUQfz-Eg/view?usp=sharing).
 
 
 ## ▶️ **Getting Started**
