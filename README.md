@@ -58,7 +58,7 @@
 
 ### 💾 *Dataset Preparation*
 
-- DOWNLOAD all video datasets for their original dources.
+- DOWNLOAD all video datasets for their original sources.
   1. [CUHK_Avenue](https://www.cse.cuhk.edu.hk/leojia/projects/detectabnormal/dataset.html)
   2. [DoTA](https://github.com/MoonBlvd/Detection-of-Traffic-Anomaly)
   3. [Ped1](http://www.svcl.ucsd.edu/projects/anomaly/dataset.htm)
@@ -69,7 +69,7 @@
 
 - Google Drive Link to [DOWNLOAD](https://drive.google.com/file/d/1WCnizldWZvtS4Yg5SX7ay5C3kUQfz-Eg/view?usp=sharing) our annotations.
 
-- Data Structure: each forder contains one annotation file (e.g. CUHK Avenue, DoTA, etc.). The `All_Mix` directory contains all of datasets in training and testing.
+- Data Structure: each folder contains one annotation file (e.g. CUHK Avenue, DoTA, etc.). The `All_Mix` directory contains all of the datasets in training and testing.
 - The dataset is organized as follows:
 
     ```
@@ -98,7 +98,7 @@
 <!-- 
 - The configuration files for [`testing`](FilmRemoval/codes/options/test/test.yml) and [`training`](FilmRemoval/codes/options/train/train.yml).
 
-- The Test_K_ford option specifies the number of folds for K-fold cross-validation during testing. The dataroot option specifies the root directory for the dataset, which is set to Dataset. Other configuration settings include learning rate schemes, loss functions, and logger options.
+- The Test_K_ford option specifies the number of folds for K-fold cross-validation during testing. The data root option specifies the root directory for the dataset, which is set to Dataset. Other configuration settings include learning rate schemes, loss functions, and logger options.
 
   ```
   datasets:
