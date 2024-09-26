@@ -176,14 +176,11 @@
 **The following is a BibTeX reference:**
 
 ``` latex
-@misc{tang2024hawk,
+@inproceedings{tang2024hawk,
       title={Hawk: Learning to Understand Open-World Video Anomalies}, 
       author={Jiaqi Tang and Hao Lu and Ruizheng Wu and Xiaogang Xu and Ke Ma and Cheng Fang and Bin Guo and Jiangbo Lu and Qifeng Chen and Ying-Cong Chen},
-      year={2024},
-      eprint={2405.16886},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2405.16886}, 
+      booktitle={Hawk: Learning to Understand Open-World Video Anomalies},
+      year={2024}
 }
 ```
 
