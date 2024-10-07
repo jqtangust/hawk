@@ -176,11 +176,11 @@
 **The following is a BibTeX reference:**
 
 ``` latex
-@inproceedings{tang2024hawk,
-      title={Hawk: Learning to Understand Open-World Video Anomalies}, 
-      author={Jiaqi Tang and Hao Lu and Ruizheng Wu and Xiaogang Xu and Ke Ma and Cheng Fang and Bin Guo and Jiangbo Lu and Qifeng Chen and Ying-Cong Chen},
-      booktitle={Hawk: Learning to Understand Open-World Video Anomalies},
-      year={2024}
+@inproceedings{atang2024hawk,
+  title = {Hawk: Learning to Understand Open-World Video Anomalies},
+  author = {Tang, Jiaqi and Lu, Hao and Wu, Ruizheng and Xu, Xiaogang and Ma, Ke and Fang, Cheng and Guo, Bin and Lu, Jiangbo and Chen, Qifeng and Chen, Ying-Cong},
+  year = {2024},
+  booktitle = {Neural Information Processing Systems (NeurIPS)}
 }
 ```
 
