@@ -1,0 +1,77 @@
+model:
+  arch: hawk
+  model_type: pretrain_llama_v2
+  freeze_vit: True
+  freeze_qformer: True
+  
+
+  # Q-Former
+  num_query_token: 32
+
+  # If you want train models based on LLaMA-2-chat,
+  # some ckpts could be download from our provided huggingface repo
+  # i.e.  https://huggingface.co/DAMO-NLP-SG/Video-LLaMA-2-13B-Finetuned
+
+  llama_model: "/remote-home/share/jiaqitang/Video-LLaMA-2-7B-Finetuned/llama-2-7b-chat-hf"
+  # imagebind_ckpt_path: "/remote-home/share/jiaqitang/ImageBind/weight"
+  
+  # llama_proj_model: ''
+
+  
+  # only train vision branch
+  equip_audio_branch: False  
+  frozen_llama_proj: False
+  frozen_video_Qformer: False
+  frozen_audio_Qformer: True
+  
+  fusion_head_layers: 2
+  max_frame_pos: 32
+  fusion_header_type: "seqTransf"
+  num_video_query_token: 32
+
+datasets:
+  webvid:
+    data_type: video
+    build_info:
+      anno_dir: /remote-home/share/jiaqitang/WebVid-2M/train_data/filter_annotations/
+      videos_dir: /remote-home/share/jiaqitang/WebVid-2M/train_data/videos/
+
+    vis_processor:
+      train:
+        name: "alpro_video_train"
+        n_frms: 32
+        image_size: 224
+    text_processor:
+      train:
+        name: "blip_caption"
+    sample_ratio: 100
+
+run:
+  task: video_text_pretrain
+  # optimizer
+  lr_sched: "linear_warmup_cosine_lr"
+  init_lr: 1e-5
+  min_lr: 1e-6
+  warmup_lr: 1e-6
+
+  weight_decay: 0.05
+  max_epoch: 160
+  batch_size_train: 1
+  batch_size_eval: 1
+  num_workers: 16
+  warmup_steps: 1000
+  iters_per_epoch: 2500
+
+  seed: 42
+  output_dir: "output/hawk_pretrain"
+
+  amp: True
+  resume_ckpt_path: null
+
+  evaluate: False 
+  train_splits: ["train"]
+
+  device: "cuda"
+  world_size: 1
+  dist_url: "env://"
+  distributed: True

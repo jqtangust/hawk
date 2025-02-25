@@ -1,19 +1,19 @@
 <div align="center">
 
-# [NeurIPS 2024] Hawk: Learning to Understand Open-World Video Anomalies
+# Hawk: Learning to Understand Open-World Video Anomalies
 
 <div align="center">
 
 ### This is the official repository for [Hawk](https://arxiv.org/pdf/2405.16886).
 
-[Jiaqi Tang](https://jqt.me/)^, [Hao Lu](https://scholar.google.com/citations?user=OOagpAcAAAAJ&hl=en)^, [Ruizheng Wu](https://scholar.google.com/citations?user=OOagpAcAAAAJ&hl=en), [Xiaogang Xu](https://xuxiaogang.com/), [Ke Ma](https://scholar.google.com.hk/citations?user=yXGNGS8AAAAJ&hl=en), [Cheng Fang](), 
-
-[Bin Guo](http://www.guob.org/), [Jiangbo Lu](https://sites.google.com/site/jiangbolu), [Qifeng Chen](https://cqf.io/) and [Ying-Cong Chen](https://www.yingcong.me/)*
+[Jiaqi Tang^](https://jqt.me/), [Hao Lu^](https://scholar.google.com/citations?user=OOagpAcAAAAJ&hl=en), [Ruizheng Wu](https://scholar.google.com/citations?user=OOagpAcAAAAJ&hl=en), [Xiaogang Xu](https://xuxiaogang.com/), [Ke Ma](https://scholar.google.com.hk/citations?user=yXGNGS8AAAAJ&hl=en), [Cheng Fang](), 
+\
+[Bin Guo](http://www.guob.org/), [Jiangbo Lu](https://sites.google.com/site/jiangbolu), [Qifeng Chen](https://cqf.io/) and [Ying-Cong Chen*](https://www.yingcong.me/)
 
 ^: Equal contribution.
 *: Corresponding Author.
 
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/jqtangust/hawk/blob/master/LICENSE) [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/) [![Visits Badge](https://badges.strrl.dev/visits/jqtangust/hawk)](https://badges.strrl.dev)
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/) [![Visits Badge](https://badges.strrl.dev/visits/jqtangust/hawk)](https://badges.strrl.dev)
 
 
 
@@ -21,45 +21,88 @@
 </div>
 </div>
 
+
+## 📢 **Updates**
+
+- ✅ Feb 25, 2025 - Demo of **Hawk** is avaliable at [HERE](https://huggingface.co/spaces/Jiaqi-hkust/hawk).
+- ✅ Feb 25, 2025 - We release the **training and demo code** of **Hawk**.
+- ✅ Feb 25, 2025 - We release the **dataset (video + annotation)** of **Hawk**. Check this Huggingface link for [DOWNLOAD](https://huggingface.co/datasets/Jiaqi-hkust/hawk).
+- ✅ Step 26, 2024 - **Hawk** is accepted by NeurIPS 2024.
+- ✅ June 29, 2024 - We release the **dataset (annotation)** of Hawk. Check this Google Cloud link for [DOWNLOAD](https://drive.google.com/file/d/1WCnizldWZvtS4Yg5SX7ay5C3kUQfz-Eg/view?usp=sharing).
+
+
 ## 🔍 **Motivation** - Have eyes like a Hawk!
 - 🚩 Current VAD systems are often limited by their superficial semantic understanding of scenes and minimal user interaction. 
 - 🚩 Additionally, the prevalent data scarcity in existing datasets restricts their applicability in open-world scenarios.
 
   <div align="center">
-    <img src="figs/motivation1.svg" alt="Hawk">
+    <img src="figs/motivation1.png" alt="Hawk">
   </div>
-
-
-## 📢 **Updates**
-
-- ✅ Step 26, 2024 - **Hawk** is accepted by NeurIPS 2024.
-- ✅ July 29, 2024 - We release the **dataset** of Hawk. Check this Google Cloud link for [DOWNLOAD](https://drive.google.com/file/d/1WCnizldWZvtS4Yg5SX7ay5C3kUQfz-Eg/view?usp=sharing).
 
 
 ## ▶️ **Getting Started**
 
-<!-- 1. [Installation](#installation)
-2. [Dataset](#dataset)
-3. [Configuration](#configuration)
-5. [Testing](#Testing)
-4. [Training](#Training) -->
-
 ### 🪒 *Installation*
-<!-- - *Python >= 3.8.2*
-- *PyTorch >= 1.8.1*
-- *Install [Polanalyser](https://github.com/elerac/polanalyser) for processing polarization image*
-    ```
-    pip install git+https://github.com/elerac/polanalyser
-    ```
-- *Install other dependencies by*
-    ```
-    pip install -r requirements.txt
-    ``` -->
+- Create environment by following steps:
+  ```
+  apt install ffmpeg
+  conda env create -f environment.yml
+  conda activate hawk
+  ```
 
+### 🏰 *Pretrained and Fine-tuned Model*
+
+
+- The following checkpoints are utilized to run Hawk：
+
+  | Checkpoint       | Link | Note |
+  |:------------------|-------------|-------------|
+  | Video-LLaMA-2-7B-Finetuned | [link](https://huggingface.co/DAMO-NLP-SG/Video-LLaMA-2-7B-Finetuned/tree/main) | Used as initial weights for training.|
+  | **Hawk_Pretrained** | [link](https://huggingface.co/Jiaqi-hkust/hawk) | Pretrained on the [WebViD](https://github.com/m-bain/webvid)|
+  | **Hawk_Finetuned** | [link](https://huggingface.co/Jiaqi-hkust/hawk) | Fine-tuned on [Hawk dataset](https://huggingface.co/datasets/Jiaqi-hkust/hawk)|
+
+- If you want to use the pretrained model, please use the **Hawk_Pretrained** checkpoint. 
+- If you wish to leverage the model for our anomaly understanding, please opt for the **Hawk_Finetuned** checkpoint.
+
+
+## ⏳ **Domo**
+
+- The configuration files for [`demo`](/configs/eval_configs/eval.yaml).
+
+- Replace the following part as your own path:
+  ```
+    # Use LLaMA-2-chat as base modal
+
+    # Some ckpts could be download from Video_LLaMA-2-7B-Finetuned
+    # https://huggingface.co/DAMO-NLP-SG/Video-LLaMA-2-7B-Finetuned
+    llama_model: ".../Video-LLaMA-2-7B-Finetuned/llama-2-7b-chat-hf"
+
+    # Hawk Weight (Pretrained or Finetuned)
+    ckpt: '.../checkpoint.pth' 
+  ```
+
+- Then, run the script:
+  ```
+  python app.py \
+      --cfg-path configs/eval_configs/eval.yaml \
+      --model_type llama_v2 \
+      --gpu-id 0
+  ```
+
+- GUI
+  <div align="center">
+    <img src="figs/demo.png" alt="Hawk">
+  </div>
+
+## 🖥️ **Training**
 
 ### 💾 *Dataset Preparation*
 
-- DOWNLOAD all video datasets for their original sources.
+-  **For your convenience, we now provide the video and annotations for the Hawk dataset. You can download them using the Hugglingface: [DOWNLOAD](https://huggingface.co/datasets/Jiaqi-hkust/hawk).**
+
+- Traditional Data Acquisition Method:
+
+  - DOWNLOAD all video datasets for their original dources.
   1. [CUHK_Avenue](https://www.cse.cuhk.edu.hk/leojia/projects/detectabnormal/dataset.html)
   2. [DoTA](https://github.com/MoonBlvd/Detection-of-Traffic-Anomaly)
   3. [Ped1](http://www.svcl.ucsd.edu/projects/anomaly/dataset.htm)
@@ -70,11 +113,14 @@
 
 - Google Drive Link to [DOWNLOAD](https://drive.google.com/file/d/1WCnizldWZvtS4Yg5SX7ay5C3kUQfz-Eg/view?usp=sharing) our annotations.
 
-- Data Structure: each folder contains one annotation file (e.g. CUHK Avenue, DoTA, etc.). The `All_Mix` directory contains all of the datasets in training and testing.
+- Data Structure: each forder contains one annotation file (e.g. CUHK Avenue, DoTA, etc.). The `All_Mix` directory contains all of datasets in training and testing.
+
 - The dataset is organized as follows:
 
     ```
-    data
+    (Hawk_data)
+
+    Annotation
     ├── All_Mix
     │   ├── all_videos_all.json
     │   ├── all_videos_test.json
@@ -88,88 +134,48 @@
     │   ├── ...
     ├── ...
     └── UCF_Crime
-        └── ...
+    │   └── ...
+    │    
+    Videos
+    ├── CUHK_Avenue
+    │   └── Avenue.json
+    ├── DoTA
+    │   └── DoTA.json
+    ├── Ped1
+    │   ├── ...
+    ├── ...
+    │    
+    readme
+
     ```
     Note：the data path should be redefined.
 
-### 🏰 *Pretrained Model*
-<!-- - Google Drive Link for downloading our [Pretrained Model](https://drive.google.com/file/d/13Cn7tX5bFBxsYZG1Haw5VcqhSxWnNzMW/view?usp=sharing) in K-Ford. -->
 
 ### 🔨 *Configuration*
-<!-- 
-- The configuration files for [`testing`](FilmRemoval/codes/options/test/test.yml) and [`training`](FilmRemoval/codes/options/train/train.yml).
 
-- The Test_K_ford option specifies the number of folds for K-fold cross-validation during testing. The data root option specifies the root directory for the dataset, which is set to Dataset. Other configuration settings include learning rate schemes, loss functions, and logger options.
+- The configuration files for [`training`](/configs/train_configs) including two stages.
+
+- Replace the following part as your own path:
 
   ```
-  datasets:
-    train:
-      name: Reconstruction
-      mode: LQGT_condition
-      Test_K_ford: K10 # remove from training
-      dataroot: /remote-home/share/jiaqi2/Dataset
-      dataroot_ratio: ./
-      use_shuffle: true
-      n_workers: 0
-      batch_size: 1
-      GT_size: 0
-      use_flip: true
-      use_rot: true
-      condition: image
-    val:
-      name: Reconstruction
-      mode: LQGT_condition_Val
-      Test_K_ford: K10 # for testing
-      dataroot: /remote-home/share/jiaqi2/Dataset
-      dataroot_ratio: ./
-      condition: image
-  ``` -->
+  llama_model: ".../Video-LLaMA-2-7B-Finetuned/llama-2-7b-chat-hf"
 
-### ⏳ *Testing*
-<!-- 
-- Modify `dataroot`, `Test_K_ford` and `pretrain_model_G` in [`testing`](FilmRemoval/codes/options/train/test.yml) configuration, then run
+  # The ckpt of vision branch after stage1 pretrained, (only for stage 2)
+  ckpt: ".../checkpoint.pth" 
   ```
-  python test.py -opt ./codes/options/test/test.yml
+
+### 🖥️ *To Train*
+
+- Then, run the script:
   ```
-- The test results will be saved to `./results/testset_name`, including `Restored Image` and `Prior`.  -->
+  # for pretraining
+  NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port='10000' train.py --cfg-path  ./configs/train_configs/stage1_pretrain.yaml
 
-### 🖥️ *Training*
-<!-- 
-
-- Modify `dataroot` and `Test_K_ford` in [`training`](FilmRemoval/codes/options/train/train.yml) configuration, then run
+  # for fine-tuning
+  NCCL_P2P_DISABLE=1 CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 --master_port='12001' train.py --cfg-path  ./configs/train_configs/stage2_finetune.yaml
   ```
-  python train.py -opt ./codes/options/train/train.yml
-  ```
-- The logs, models and training states will be saved to `./experiments/name`. You can also use `tensorboard` for monitoring for the `./tb_logger/name`.
 
-- Restart Training (To add checkpoint in [`training`](FilmRemoval/codes/options/train/train.yml) configuration)
-  ```
-  path:
-    root: ./
-    pretrain_model_G: .../experiments/K1/models/XX.pth
-    strict_load: false
-    resume_state: .../experiments/K1/training_state/XX.state
-  ``` -->
-
-
-
-## ⚡ **Performance**
-<!-- Compared with other baselines, our model achieves state-of-the-art performance:
-
-> ⭐ **[Table 1] Quantitative evaluation in image reconstruction with 10-fold cross-validation.**
-> | Methods | PSNR | SSIM |
-> |---------|------|------|
-> | SHIQ| 21.58 | 0.7499 |
-> | Polar-HR| 22.19 | 0.7176 |
-> | Uformer| 31.68 | 0.9426 |
-> | Restormer| 34.32 | 0.9731 |
-> | Ours| 36.48 | 0.9824 |
-
-> ⭐ **[Figure 1] Qualitative Evaluation in image reconstruction.**
-> ![](fig/image-1.png)
-
-> ⭐ **[Figure 2-3] Qualitative Evaluation in Industrial Environment. (QR Reading & Text OCR)**
-> ![](fig/image-2.png) -->
+  *Resource Usage: Training (stage 1 and stage 2): 4 * RTX A6000 48G*
 
 ## 🌐 **Citations**
 
@@ -189,5 +195,7 @@
 If you have any questions, please feel free to send email to `jtang092@connect.hkust-gz.edu.cn`.
 
 
-<!-- ## 📜 **Acknowledgment**
-This work is supported by the National Natural Science Foundation of China (No. 62206068) and the Natural Science Foundation of Zhejiang Province, China under No. LD24F020002. -->
+## 📜 **Acknowledgment**
+This work is supported by the National Natural Science Foundation of China (No. 62206068) and the Natural Science Foundation of Zhejiang Province, China under No. LD24F020002.
+
+Also, this project is inspired by [Video-LLaMA](https://github.com/DAMO-NLP-SG/Video-LLaMA).

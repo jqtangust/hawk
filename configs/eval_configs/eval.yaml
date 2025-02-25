@@ -1,0 +1,39 @@
+model:
+  arch: hawk
+  model_type: pretrain_llama_v2
+  freeze_vit: True
+  freeze_qformer: True
+  max_txt_len: 512
+  end_sym: "</s>"
+  low_resource: False
+
+  frozen_llama_proj: False
+
+  # Use LLaMA-2-chat as base modal
+
+  # some ckpts could be download from Video_LLaMA-2-7B-Finetuned
+  # https://huggingface.co/DAMO-NLP-SG/Video-LLaMA-2-7B-Finetuned
+  llama_model: "/remote-home/share/jiaqitang/Video-LLaMA-2-7B-Finetuned/llama-2-7b-chat-hf"
+
+  # Hawk Weight
+  ckpt: '/remote-home/share/jiaqitang/Hawk_Ours/hawk/output/hawk_finetune/20250221045/checkpoint_10.pth' 
+
+  equip_audio_branch: False
+
+  fusion_head_layers: 2
+  max_frame_pos: 32
+  fusion_header_type: "seqTransf"
+
+datasets:
+  webvid:
+    vis_processor:
+      train:
+        name: "alpro_video_eval"
+        n_frms: 32
+        image_size: 224
+    text_processor:
+      train:
+        name: "blip_caption"
+
+run:
+  task: video_text_pretrain
