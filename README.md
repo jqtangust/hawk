@@ -24,7 +24,7 @@
 
 ## 📢 **Updates**
 
-- ✅ Feb 25, 2025 - Demo of **Hawk** is avaliable at [HERE](https://huggingface.co/spaces/Jiaqi-hkust/hawk).
+- ✅ Feb 25, 2025 - Huggingface Demo of **Hawk** is avaliable at [HERE](https://huggingface.co/spaces/Jiaqi-hkust/hawk).
 - ✅ Feb 25, 2025 - We release the **training and demo code** of **Hawk**.
 - ✅ Feb 25, 2025 - We release the **dataset (video + annotation)** of **Hawk**. Check this Huggingface link for [DOWNLOAD](https://huggingface.co/datasets/Jiaqi-hkust/hawk).
 - ✅ Step 26, 2024 - **Hawk** is accepted by NeurIPS 2024.
