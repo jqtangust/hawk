@@ -111,44 +111,44 @@
   6. [UBNormal](https://github.com/lilygeorgescu/UBnormal/)
   7. [UCF_Crime](https://www.crcv.ucf.edu/projects/real-world/)
 
-- Google Drive Link to [DOWNLOAD](https://drive.google.com/file/d/1WCnizldWZvtS4Yg5SX7ay5C3kUQfz-Eg/view?usp=sharing) our annotations.
+ - Google Drive Link to [DOWNLOAD](https://drive.google.com/file/d/1WCnizldWZvtS4Yg5SX7ay5C3kUQfz-Eg/view?usp=sharing) our annotations.
 
-- Data Structure: each forder contains one annotation file (e.g. CUHK Avenue, DoTA, etc.). The `All_Mix` directory contains all of datasets in training and testing.
+ - Data Structure: each forder contains one annotation file (e.g. CUHK Avenue, DoTA, etc.). The `All_Mix` directory contains all of datasets in training and testing.
 
-- The dataset is organized as follows:
-
-    ```
-    (Hawk_data)
-
-    Annotation
-    ├── All_Mix
-    │   ├── all_videos_all.json
-    │   ├── all_videos_test.json
-    │   └── all_videos_train.json
-    │    
-    ├── CUHK_Avenue
-    │   └── Avenue.json
-    ├── DoTA
-    │   └── DoTA.json
-    ├── Ped1
-    │   ├── ...
-    ├── ...
-    └── UCF_Crime
-    │   └── ...
-    │    
-    Videos
-    ├── CUHK_Avenue
-    │   └── Avenue.json
-    ├── DoTA
-    │   └── DoTA.json
-    ├── Ped1
-    │   ├── ...
-    ├── ...
-    │    
-    readme
-
-    ```
-    Note：the data path should be redefined.
+ - The dataset is organized as follows:
+  
+      ```
+      (Hawk_data)
+  
+      Annotation
+      ├── All_Mix
+      │   ├── all_videos_all.json
+      │   ├── all_videos_test.json
+      │   └── all_videos_train.json
+      │    
+      ├── CUHK_Avenue
+      │   └── Avenue.json
+      ├── DoTA
+      │   └── DoTA.json
+      ├── Ped1
+      │   ├── ...
+      ├── ...
+      └── UCF_Crime
+      │   └── ...
+      │    
+      Videos
+      ├── CUHK_Avenue
+      │   └── Avenue.json
+      ├── DoTA
+      │   └── DoTA.json
+      ├── Ped1
+      │   ├── ...
+      ├── ...
+      │    
+      readme
+  
+      ```
+      Note：the data path should be redefined.
 
 
 ### 🔨 *Configuration*
