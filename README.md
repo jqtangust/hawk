@@ -1,6 +1,6 @@
 <div align="center">
 
-# Hawk: Learning to Understand Open-World Video Anomalies
+# [NeurIPS 2024] Hawk: Learning to Understand Open-World Video Anomalies
 
 <div align="center">
 
