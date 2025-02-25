@@ -89,7 +89,7 @@
       --gpu-id 0
   ```
 
-- GUI
+- GUI [Online Demo](https://huggingface.co/spaces/Jiaqi-hkust/hawk)
   <div align="center">
     <img src="figs/demo.png" alt="Hawk">
   </div>
